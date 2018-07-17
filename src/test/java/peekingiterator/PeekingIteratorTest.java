@@ -10,20 +10,21 @@ import java.util.NoSuchElementException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PeekingIteratorTest {
+
     @Test
     public void testThatPeekWillReturnTheSameValueBeforeNext() {
         Iterator<Integer> iterator = Arrays.asList(1, 2, 3).iterator();
         PeekingIterator peekingIterator = new PeekingIterator(iterator);
-        assertEquals(peekingIterator.peek(), Integer.valueOf(1));
-        assertEquals(peekingIterator.next(), Integer.valueOf(1));
+        assertEquals(Integer.valueOf(1), peekingIterator.peek());
+        assertEquals(Integer.valueOf(1), peekingIterator.next());
     }
 
     @Test
     public void testThatHasNextWillBeFalseAfterCallingNextForAllElements() {
         Iterator<Integer> iterator = Arrays.asList(2, 3).iterator();
         PeekingIterator peekingIterator = new PeekingIterator(iterator);
-        assertEquals(peekingIterator.next(), Integer.valueOf(2));
-        assertEquals(peekingIterator.next(), Integer.valueOf(3));
+        assertEquals(Integer.valueOf(2), peekingIterator.next());
+        assertEquals(Integer.valueOf(3), peekingIterator.next());
         assertFalse(peekingIterator.hasNext());
     }
 
@@ -31,7 +32,7 @@ class PeekingIteratorTest {
     public void testThatExceptionWillBeThrownInCaseOfCallingNextForNonexistentItem() {
         Iterator<Integer> iterator = Collections.singletonList(3).iterator();
         PeekingIterator peekingIterator = new PeekingIterator(iterator);
-        assertEquals(peekingIterator.next(), Integer.valueOf(3));
+        assertEquals(Integer.valueOf(3), peekingIterator.next());
         assertThrows(NoSuchElementException.class, peekingIterator::next);
     }
 
@@ -39,16 +40,16 @@ class PeekingIteratorTest {
     public void testThatPeekWillReturnTheSameValueBeforeNextForOptional() {
         Iterator<Integer> iterator = Arrays.asList(1, 2, 3).iterator();
         PeekingIteratorWithOptional peekingIterator = new PeekingIteratorWithOptional(iterator);
-        assertEquals(peekingIterator.peek(), Integer.valueOf(1));
-        assertEquals(peekingIterator.next(), Integer.valueOf(1));
+        assertEquals(Integer.valueOf(1), peekingIterator.peek());
+        assertEquals(Integer.valueOf(1), peekingIterator.next());
     }
 
     @Test
     public void testThatHasNextWillBeFalseAfterCallingNextForAllElementsForOptional() {
         Iterator<Integer> iterator = Arrays.asList(2, 3).iterator();
         PeekingIteratorWithOptional peekingIterator = new PeekingIteratorWithOptional(iterator);
-        assertEquals(peekingIterator.next(), Integer.valueOf(2));
-        assertEquals(peekingIterator.next(), Integer.valueOf(3));
+        assertEquals(Integer.valueOf(2), peekingIterator.next());
+        assertEquals(Integer.valueOf(3), peekingIterator.next());
         assertFalse(peekingIterator.hasNext());
     }
 
@@ -56,7 +57,7 @@ class PeekingIteratorTest {
     public void testThatExceptionWillBeThrownInCaseOfCallingNextForNonexistentItemForOptional() {
         Iterator<Integer> iterator = Collections.singletonList(3).iterator();
         PeekingIteratorWithOptional peekingIterator = new PeekingIteratorWithOptional(iterator);
-        assertEquals(peekingIterator.next(), Integer.valueOf(3));
+        assertEquals(Integer.valueOf(3), peekingIterator.next());
         assertThrows(NoSuchElementException.class, peekingIterator::next);
     }
 }

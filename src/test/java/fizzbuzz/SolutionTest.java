@@ -12,38 +12,38 @@ class SolutionTest {
     void testThatFunctionWillReturnArrayWithCorrectSize() {
         int n = 15;
         List<String> result = Solution.fizzBuzz(n);
-        assertEquals(result.size(), n);
+        assertEquals(n, result.size());
     }
 
     @Test
     void testThatFunctionWillReturnIndexStartsWith1IfNumberIsNotMultipleOfThreeOrFive() {
         int n = 15;
         List<String> result = Solution.fizzBuzz(n);
-        assertEquals(result.get(0), "1");
-        assertEquals(result.get(1), "2");
-        assertEquals(result.get(3), "4");
+        assertEquals("1", result.get(0));
+        assertEquals("2", result.get(1));
+        assertEquals("4", result.get(3));
     }
 
     @Test
     void testThatFunctionWillReturnFizzIfNumberIsMultipleOfThreeAndNotMultipleOfFive() {
         int n = 15;
         List<String> result = Solution.fizzBuzz(n);
-        assertEquals(result.get(2), "Fizz");
-        assertEquals(result.get(5), "Fizz");
+        assertEquals("Fizz", result.get(2));
+        assertEquals("Fizz", result.get(5));
     }
 
     @Test
     void testThatFunctionWillReturnBuzzIfNumberIsMultipleOfFiveAndNotMultipleOfThree() {
         int n = 15;
         List<String> result = Solution.fizzBuzz(n);
-        assertEquals(result.get(4), "Buzz");
-        assertEquals(result.get(9), "Buzz");
+        assertEquals("Buzz", result.get(4));
+        assertEquals("Buzz", result.get(9));
     }
 
     @Test
     void testThatFunctionWillReturnFizzBuzzIfNumberIsMultipleOfThreeAndFive() {
         int n = 15;
         List<String> result = Solution.fizzBuzz(n);
-        assertEquals(result.get(14), "FizzBuzz");
+        assertEquals("FizzBuzz", result.get(14));
     }
 }
